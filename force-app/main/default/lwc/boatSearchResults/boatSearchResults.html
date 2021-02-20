@@ -1,0 +1,25 @@
+<template>
+    <lightning-tabset variant="scoped">
+        <lightning-tab label="Gallery">
+            <template if:true={boats}>
+                <div class="slds-scrollable_y">
+                    <lightning-layout horizontal-align="center" multiple-rows>
+                        <template for:each={boats} for:item="boat">
+                            <lightning-layout-item size="12" padding="around-small" key={boat.Id}  small-device-size="6"
+                            medium-device-size="4" large-device-size="3">
+                                     <c-boat-tile boat={boat} selected-boat-id={selectedBoatId}
+                                     onboatselect={updateSelectedTile} ></c-boat-tile>
+                            </lightning-layout-item>
+                        </template>
+                    </lightning-layout>
+                 </div>   
+             </template>   
+        </lightning-tab>
+        <lightning-tab label="Boats Near Me">
+            Boats Near Me
+        </lightning-tab>
+        <lightning-tab label="Boat Editor">
+            Boat Editor 
+        </lightning-tab>
+    </lightning-tabset>
+</template>
